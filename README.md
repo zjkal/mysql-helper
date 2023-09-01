@@ -1,6 +1,6 @@
 <br/>
 <p align="center">
-    <img src="https://gitee.com/xc-soft/mysql-helper/raw/main/logo.svg" alt="TimeHelper" width="180" />
+    <img src="https://gitee.com/xc-soft/mysql-helper/raw/main/logo.svg" alt="MysqlHelper" width="180" />
     <br/>
     <br/>
     中文文档 | <a href="https://github.com/zjkal/mysql-helper/blob/main/README_EN.md" target="_blank">English Document</a>
@@ -94,7 +94,7 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 ## 📃更新日志
 
-> v1.0.0 2023年9月1日
+> v1.0.0 2023年9月2日
 > * 首次发布
 
 ## 📖开源协议
