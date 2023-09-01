@@ -1,0 +1,22 @@
+{
+    "name": "zjkal/mysql-helper",
+    "description": "一个便捷的MySQL导入导出的助手类库。 a mysql import and export helper library.",
+    "keywords": ["php", "mysql", "helper", "import", "export", "zjkal"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zjkal",
+            "email": "zjkal@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "zjkal\\": "src/"
+        }
+    }
+}
