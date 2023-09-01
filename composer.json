@@ -12,11 +12,20 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.1",
+        "ext-mysqli": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "@stable"
     },
     "autoload": {
         "psr-4": {
             "zjkal\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "zjkal\\tests\\": "tests/"
         }
     }
 }
