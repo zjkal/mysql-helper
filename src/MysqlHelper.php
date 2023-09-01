@@ -114,7 +114,7 @@ class MysqlHelper
 
         // 检查连接是否成功
         if ($conn->connect_error) {
-            throw new \PDOException("数据库连接失败: " . $conn->connect_error);
+            throw new \mysqli_sql_exception("数据库连接失败: " . $conn->connect_error);
         }
 
         // 设置编码
@@ -136,7 +136,7 @@ class MysqlHelper
 
             $result = $conn->query($sqlStatement);
             if (!$result) {
-                throw new \PDOException("导入失败: " . $conn->error);
+                throw new \mysqli_sql_exception("导入失败: " . $conn->error);
             }
         }
 
@@ -158,7 +158,7 @@ class MysqlHelper
 
         // 检查连接是否成功
         if ($conn->connect_error) {
-            throw new \PDOException("数据库连接失败: " . $conn->connect_error);
+            throw new \mysqli_sql_exception("数据库连接失败: " . $conn->connect_error);
         }
 
         // 设置编码
