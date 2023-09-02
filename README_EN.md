@@ -29,8 +29,7 @@
 
 - Easy to use: only depends on `mysqlli` extension, `out of the box`
 - Flexible operation: Compatible with mainstream frameworks, more convenient to use
-- Long-term maintenance: The author is a freelancer committed to ensuring the project's `long-term stability`
-  and `continuous updates`.
+- Long-term maintenance: The author is a freelancer committed to ensuring the project's `long-term stability` and `continuous updates`.
 
 ## 🚀Installation
 
@@ -100,5 +99,4 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 ## 📖License
 
-The MIT License (MIT). Please see [License File](https://github.com/zjkal/mysql-helper/blob/main/LICENSE) for more
-information.
+The MIT License (MIT). Please see [License File](https://github.com/zjkal/mysql-helper/blob/main/LICENSE) for more information.
