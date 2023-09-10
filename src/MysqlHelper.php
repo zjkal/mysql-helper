@@ -88,7 +88,7 @@ class MysqlHelper
             $config['password'],
             $config['database'],
             $config['host'] ?? $config['hostname'] ?? '127.0.0.1',
-            $config['host'] ?? $config['hostname'] ?? 3306,
+            $config['port'] ?? $config['hostport'] ?? 3306,
             $config['prefix'] ?? '',
             $config['charset'] ?? 'utf8mb4'
         );
