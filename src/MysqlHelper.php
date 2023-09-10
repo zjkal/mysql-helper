@@ -65,10 +65,10 @@ class MysqlHelper
         $this->username = $username;
         $this->password = $password;
         $this->database = $database;
-        $this->host     = $host;
-        $this->port     = intval($port);
-        $this->prefix   = $prefix;
-        $this->charset  = $charset;
+        $this->host = $host;
+        $this->port = intval($port);
+        $this->prefix = $prefix;
+        $this->charset = $charset;
     }
 
     /**
@@ -121,22 +121,24 @@ class MysqlHelper
         $conn->set_charset($this->charset);
 
         //读取.sql文件内容
-        $sqlContent = file_get_contents($sqlFilePath);
-        // 分号分隔.sql文件中的多个SQL语句
-        $sqlStatements = explode(';', $sqlContent);
+        $sqlContent = file($sqlFilePath);
 
+        $tmp = '';
         // 执行每个SQL语句
-        foreach ($sqlStatements as $sqlStatement) {
-            if (trim($sqlStatement) == '' || stripos(trim($sqlStatement), '--') === 0 || stripos(trim($sqlStatement), '/*') === 0) {
+        foreach ($sqlContent as $line) {
+            if (trim($line) == '' || stripos(trim($line), '--') === 0 || stripos(trim($line), '/*') === 0) {
                 continue;
             }
 
-            $sqlStatement = str_ireplace('__PREFIX__', $prefix, $sqlStatement);
-            $sqlStatement = str_ireplace('INSERT INTO ', 'INSERT IGNORE INTO ', $sqlStatement);
-
-            $result = $conn->query($sqlStatement);
-            if (!$result) {
-                throw new \mysqli_sql_exception("导入失败: " . $conn->error);
+            $tmp .= $line;
+            if (substr(trim($line), -1) === ';') {
+                $tmp = str_ireplace('__PREFIX__', $prefix, $tmp);
+                $tmp = str_ireplace('INSERT INTO ', 'INSERT IGNORE INTO ', $tmp);
+                $result = $conn->query($tmp);
+                if (!$result) {
+                    throw new \mysqli_sql_exception("导入失败: " . $conn->error);
+                }
+                $tmp = '';
             }
         }
 
@@ -165,7 +167,7 @@ class MysqlHelper
         $conn->set_charset($this->charset);
 
         // 获取所有表名
-        $result     = $conn->query("SHOW TABLES");
+        $result = $conn->query("SHOW TABLES");
         $all_tables = [];
 
         while ($row = $result->fetch_row()) {
