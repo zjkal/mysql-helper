@@ -96,6 +96,7 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 > v1.0.1 2023年9月10日
 > * 修复了在Thinkphp框架下端口识别错误的BUG
+> * 增加了导入的稳定性
 
 > v1.0.0 2023年9月2日
 > * 首次发布
