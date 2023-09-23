@@ -94,6 +94,9 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 ## 📃Changelog
 
+> v1.0.2 Sep 23, 2023
+> * Increased export stability
+
 > v1.0.1 Sep 10, 2023
 > * Fixed the bug of incorrect port recognition under the Thinkphp framework
 > * Increased import stability
