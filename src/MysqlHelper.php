@@ -190,14 +190,22 @@ class MysqlHelper
 
             if ($withData) {
                 // 导出表数据
-                fwrite($outputFile, "-- 表数据：$table\n");
                 $result = $conn->query("SELECT * FROM $table");
-                while ($row = $result->fetch_assoc()) {
-                    $columns = implode("','", array_map([$conn, 'real_escape_string'], array_values($row)));
-                    fwrite($outputFile, "INSERT INTO $table VALUES ('$columns');\n");
-                }
-                if (empty($row)) {
+                if (!$result) {
+                    fwrite($outputFile, "/* 查询失败或" . $table . "表不存在 */\n");
+                } else if ($result->num_rows == 0) {
                     fwrite($outputFile, "/* " . $table . "表没有数据 */\n");
+                } else {
+                    fwrite($outputFile, "-- 表数据：$table\n");
+                    while ($row = $result->fetch_assoc()) {
+                        $escapedValues = array_map(function ($value) use ($conn) {
+                            return $conn->escape_string(strval($value));
+                        }, $row);
+                        $columns = implode("','", $escapedValues);
+                        fwrite($outputFile, "INSERT INTO `$table` VALUES ('$columns');\n");
+                    }
+                    //释放结果集
+                    $result->free();
                 }
             }
         }
