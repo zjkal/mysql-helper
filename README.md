@@ -1,6 +1,6 @@
 <br/>
 <p align="center">
-    <img src="https://gitee.com/zjkal/mysql-helper/raw/main/logo.svg" alt="MysqlHelper" width="180" />
+    <img src="https://zjkal.cn/assets/images/logo/mysql-helper.svg" alt="MysqlHelper" width="180" />
     <br/>
     <br/>
     中文文档 | <a href="https://github.com/zjkal/mysql-helper/blob/main/README_EN.md" target="_blank">English Document</a>
