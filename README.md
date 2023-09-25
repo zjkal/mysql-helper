@@ -104,6 +104,14 @@ $mysql->importSqlFile('test.sql', 'wp_');
 > v1.0.0 2023年9月2日
 > * 首次发布
 
+## 💖支持我
+
+您的认可是我继续前行的动力, 如果您觉得`MysqlHelper`对您有帮助, 请[🙏支持我](https://zjkal.cn/sponsor), 谢谢您!
+
+## 🐧加入我的QQ频道
+
+[![QQ频道:世界上最好的编程语言](https://zjkal.cn/assets/images/qq_pindao_a1.png)](https://pd.qq.com/s/7h2hvcuxs)
+
 ## 📖开源协议
 
 MysqlHelper遵循[MIT开源协议](https://github.com/zjkal/mysql-helper/blob/main/LICENSE), 意味着您无需任何授权, 即可免费将MysqlHelper应用到您的项目中

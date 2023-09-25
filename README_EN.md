@@ -104,6 +104,10 @@ $mysql->importSqlFile('test.sql', 'wp_');
 > v1.0.0 Sep 2, 2023
 > * Initial Release
 
+## 💖sponsor me
+
+Your recognition is the motivation to move on, if you think `MysqlHelper` is helpful to you, please [🙏support me](https://zjkal.cn/sponsor), thank you!
+
 ## 📖License
 
 The MIT License (MIT). Please see [License File](https://github.com/zjkal/mysql-helper/blob/main/LICENSE) for more information.
