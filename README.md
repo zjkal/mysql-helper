@@ -68,6 +68,8 @@ $mysql->setConfig($config);
 
 ### 2. 导出数据
 
+* 如果实例化时, 已经设置了表前缀,导出的表名可以不用带前缀
+
 ```php
 //导出数据库(包含表结构和数据)
 $mysql->exportSqlFile('test.sql');
@@ -82,7 +84,7 @@ $mysql->exportSqlFile('test.sql', true, ['table1', 'table2']);
 ### 3. 导入数据
 
 * sql文件中的表前缀需要使用`__PREFIX__`占位符代替
-* 如果实例化时,已经设置了数据库前缀,则可以不用传入第二个参数
+* 如果实例化时,已经设置了表前缀,则可以不用传入第二个参数
 
 ```php
 //导入数据库
