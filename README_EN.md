@@ -1,9 +1,9 @@
 <br/>
 <p align="center">
-    <img src="https://github.com/zjkal/mysql-helper/raw/main/logo.svg" alt="MysqlHelper" width="180" />
+    <img src="logo.svg" alt="MysqlHelper" width="180" />
     <br/>
     <br/>
-    <a href="https://github.com/zjkal/mysql-helper/blob/main/README.md" target="_blank">中文文档</a> | English Document
+    <a href="https://github.com/zjkal/mysql-helper/blob/main/README.md" target="_blank">中文</a> | English
 </p>
 <p align="center">
     <a href="https://github.com/zjkal/mysql-helper/blob/main/LICENSE" target="_blank">
@@ -106,10 +106,6 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 > v1.0.0 Sep 2, 2023
 > * Initial Release
-
-## 💖sponsor me
-
-Your recognition is the motivation to move on, if you think `MysqlHelper` is helpful to you, please [🙏support me](https://zjkal.cn/sponsor), thank you!
 
 ## 📖License
 

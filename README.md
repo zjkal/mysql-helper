@@ -1,9 +1,9 @@
 <br/>
 <p align="center">
-    <img src="https://zjkal.cn/assets/images/logo/mysql-helper.svg" alt="MysqlHelper" width="180" />
+    <img src="logo.svg" alt="MysqlHelper" width="180" />
     <br/>
     <br/>
-    中文文档 | <a href="https://github.com/zjkal/mysql-helper/blob/main/README_EN.md" target="_blank">English Document</a>
+    中文 | <a href="https://github.com/zjkal/mysql-helper/blob/main/README_EN.md" target="_blank">English</a>
 </p>
 <p align="center">
     <a href="https://github.com/zjkal/mysql-helper/blob/main/LICENSE" target="_blank">
@@ -108,14 +108,6 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 > v1.0.0 2023年9月2日
 > * 首次发布
-
-## 💖支持我
-
-您的认可是我继续前行的动力, 如果您觉得`MysqlHelper`对您有帮助, 请[🙏支持我](https://zjkal.cn/sponsor), 谢谢您!
-
-## 🐧加入我的QQ频道
-
-[![QQ频道:世界上最好的编程语言](https://zjkal.cn/assets/images/qq_pindao_a1.png)](https://pd.qq.com/s/7h2hvcuxs)
 
 ## 📖开源协议
 
