@@ -120,25 +120,22 @@ class MysqlHelper
         // 设置编码
         $conn->set_charset($this->charset);
 
-        //读取.sql文件内容
-        $sqlContent = file($sqlFilePath);
-
-        $tmp = '';
+        // 读取.sql文件内容并过滤注释
+        $sqlContent = file_get_contents($sqlFilePath);
+        $sqlContent = preg_replace("/(\/\*.*?\*\/|--.*?$)/ms", '', $sqlContent);
+        // 分割SQL语句，这里假设每个语句以';'结尾
+        $sqlContent = explode(";\r\n", $sqlContent);
+        // 过滤空数组
+        array_filter($sqlContent, function($value) { return $value !== ''; });
         // 执行每个SQL语句
-        foreach ($sqlContent as $line) {
-            if (trim($line) == '' || stripos(trim($line), '--') === 0 || stripos(trim($line), '/*') === 0) {
-                continue;
+        foreach ($sqlContent as $sql) {
+            // 替换表前缀
+            if (!empty($prefix)) {
+                $sql = str_ireplace('__PREFIX__', $prefix, $sql);
             }
-
-            $tmp .= $line;
-            if (substr(trim($line), -1) === ';') {
-                $tmp = str_ireplace('__PREFIX__', $prefix, $tmp);
-                $tmp = str_ireplace('INSERT INTO ', 'INSERT IGNORE INTO ', $tmp);
-                $result = $conn->query($tmp);
-                if (!$result) {
-                    throw new \mysqli_sql_exception("导入失败: " . $conn->error);
-                }
-                $tmp = '';
+            $result = $conn->query($sql);
+            if (!$result) {
+                throw new \mysqli_sql_exception("导入失败: " . $conn->error);
             }
         }
 
