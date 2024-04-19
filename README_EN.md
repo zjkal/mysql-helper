@@ -94,6 +94,9 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 ## 📃Changelog
 
+> v1.0.4 Apr 19, 2024
+> * Optimized the filtering rules for comments in .sql files
+
 > v1.0.3 Dec 9, 2023
 > * If a table prefix is set during instantiation, the exported table name can not contain the prefix
 
