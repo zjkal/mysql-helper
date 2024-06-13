@@ -23,7 +23,7 @@
     </a>
 </p>
 
-`MysqlHelper` is a convenient tool to `import and export Mysql database table structure and data with PHP`, which can quickly realize the import and export of mysql database.
+'MysqlHelper' is a convenient tool for 'importing and exporting Mysql database table structure and data via PHP', which can quickly import and export mysql databases. These libraries are designed to provide lightweight and convenient MySQL import and export, and are developed to import data structures from web application installers and plug-in applications. Therefore, there is no data batching, and the import and export of a large amount of data is not suitable.
 
 ## 🧩Features
 
