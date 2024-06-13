@@ -48,14 +48,14 @@ composer require zjkal/mysql-helper
 ```php
 use zjkal\MysqlHelper;
 
-$mysql = new MysqlHelper('root', 'root', 'testdatabase', '127.0.0.1', '3306', 'utf8mb4', 'wp_');
+$mysql = new MysqlHelper('root', 'passwd', 'dbname', '127.0.0.1', '3306', 'utf8mb4', 'wp_');
 ```
 
 *方式二: 实例化后,通过setConfig方法设置数据库配置*
 
 ```php
 $mysql = new MysqlHelper();
-$mysql->setConfig(['username' => 'root', 'password' => 'root', 'database' => 'testdatabase']);
+$mysql->setConfig(['username' => 'root', 'password' => 'passwd', 'database' => 'dbname']);
 ```
 
 MysqlHelper针对常用的框架做了兼容,可以直接使用框架的数据库配置, 比如`ThinkPHP`框架或`Laravel`框架
@@ -83,7 +83,7 @@ $mysql->exportSqlFile('test.sql', true, ['table1', 'table2']);
 
 ### 3. 导入数据
 
-* sql文件中的表前缀需要使用`__PREFIX__`占位符代替
+* 如果需要在导入过程中自定义表前缀, 则sql文件中的表前缀需要使用`__PREFIX__`占位符代替
 * 如果实例化时,已经设置了表前缀,则可以不用传入第二个参数
 
 ```php

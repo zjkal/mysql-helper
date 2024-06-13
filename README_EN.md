@@ -48,14 +48,14 @@ composer require zjkal/mysql-helper
 ```php
 use zjkal\MysqlHelper;
 
-$mysql = new MysqlHelper('root', 'root', 'testdatabase', '127.0.0.1', '3306', 'utf8mb4', 'wp_');
+$mysql = new MysqlHelper('root', 'passwd', 'dbname', '127.0.0.1', '3306', 'utf8mb4', 'wp_');
 ```
 
 *Method 2: After instantiation, set the database configuration through the setConfig method*
 
 ```php
 $mysql = new MysqlHelper();
-$mysql->setConfig(['username' => 'root', 'password' => 'root', 'database' => 'testdatabase']);
+$mysql->setConfig(['username' => 'root', 'password' => 'passwd', 'database' => 'dbname']);
 ```
 
 MysqlHelper is compatible with commonly used frameworks, you can directly use the database configuration of the framework, such as `ThinkPHP` framework or `Laravel` framework
@@ -81,7 +81,7 @@ $mysql->exportSqlFile('test.sql', true, ['table1', 'table2']);
 
 ### 3. Import
 
-* The table prefix in the sql file needs to be replaced by `__PREFIX__` placeholder
+* If you need to customize the table prefix during the import process, the table prefix in the SQL file needs to be replaced with a '__PREFIX__' placeholder
 * If the database prefix has been set during instantiation, you do not need to pass in the second parameter
 
 ```php
