@@ -99,6 +99,9 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 ## 📃Changelog
 
+> v1.0.5 June 14, 2024
+> * Added the ability to set a parameter to disable foreign key checking during export
+
 > v1.0.4 Apr 19, 2024
 > * Optimized the filtering rules for comments in .sql files
 
