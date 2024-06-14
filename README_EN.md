@@ -77,6 +77,11 @@ $mysql->exportSqlFile('test.sql', false);
 
 //Export the structure and data of the specified table
 $mysql->exportSqlFile('test.sql', true, ['table1', 'table2']);
+
+//Export all tables in the database and add an SQL statement that disables foreign key checking
+$mysql->exportSqlFile('test.sql', true, [], true);
+//PHP8 or above can be written more concisely:
+$mysql->exportSqlFile('test.sql', disableForeignKeyChecks: true);
 ```
 
 ### 3. Import

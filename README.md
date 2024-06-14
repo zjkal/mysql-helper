@@ -79,6 +79,11 @@ $mysql->exportSqlFile('test.sql', false);
 
 //导出指定表的结构和数据
 $mysql->exportSqlFile('test.sql', true, ['table1', 'table2']);
+
+//导出数据库所有表,并且添加禁用外键检查的SQL语句
+$mysql->exportSqlFile('test.sql', true, [], true);
+//php8以上可以更简洁的写法:
+$mysql->exportSqlFile('test.sql', disableForeignKeyChecks: true);
 ```
 
 ### 3. 导入数据
