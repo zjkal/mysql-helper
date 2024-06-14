@@ -137,7 +137,7 @@ class MysqlHelper
             }
 
             // 忽略插入重复数据
-            $sql = str_ireplace('INSERT INTO ', 'INSERT IGNORE INTO ', $sql);
+            $sql = str_ireplace('INSERT INTO', 'INSERT IGNORE INTO', $sql);
 
             $result = $conn->query($sql);
             if (!$result) {
@@ -151,12 +151,13 @@ class MysqlHelper
 
     /**
      * 将mysql数据库表结构和数据导出为.sql文件
-     * @param string $sqlFilePath 导出的.sql文件路径
-     * @param bool   $withData    是否导出表数据(默认为true)
-     * @param array  $tables      要导出的表名数组(默认为空，即导出所有表)
+     * @param string $sqlFilePath             导出的.sql文件路径
+     * @param bool   $withData                是否导出表数据(默认为true)
+     * @param array  $tables                  要导出的表名数组(默认为空，即导出所有表)
+     * @Param bool   $disableForeignKeyChecks 禁用外键检查（默认为false）
      * @return void
      */
-    public function exportSqlFile(string $sqlFilePath, bool $withData = true, array $tables = [])
+    public function exportSqlFile(string $sqlFilePath, bool $withData = true, array $tables = [], bool $disableForeignKeyChecks = false)
     {
         // 创建MySQL连接
         $conn = new mysqli($this->host, $this->username, $this->password, $this->database, $this->port);
@@ -179,6 +180,11 @@ class MysqlHelper
 
         // 打开输出文件
         $outputFile = fopen($sqlFilePath, 'w');
+
+        // 设置禁用外键检查
+        if ($disableForeignKeyChecks) {
+            fwrite($outputFile, "SET FOREIGN_KEY_CHECKS=0;\n");
+        }
 
         // 循环每个表，导出结构和数据
         foreach ($all_tables as $table) {
