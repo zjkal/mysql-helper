@@ -1,6 +1,6 @@
 <br/>
 <p align="center">
-    <img src="https://static.0x1.site/logo-mysql-helper.svg" alt="MysqlHelper" width="180" />
+    <img src="https://cdn.0x1.site/logo-mysql-helper.svg" alt="MysqlHelper" width="180" />
     <br/>
     <br/>
     中文 | <a href="https://github.com/zjkal/mysql-helper/blob/main/README_EN.md" target="_blank">English</a>
@@ -122,7 +122,7 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 ## 🐧QQ频道
 <a href="https://pd.qq.com/s/7h2hvcuxs">
-  <img src="https://static.0x1.site/qrcode-qqpd.png" />
+  <img src="https://cdn.0x1.site/qrcode-qqpd.png"  alt="QQ频道-世界上最好的编程语言"/>
 </a>
 
 ## 📖开源协议
