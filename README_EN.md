@@ -99,6 +99,9 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 ## 📃Changelog
 
+> v1.0.6 Aug 27, 2024
+> * Added logic to determine whether a table with the same name exists
+
 > v1.0.5 June 14, 2024
 > * Added the ability to set a parameter to disable foreign key checking during export
 
