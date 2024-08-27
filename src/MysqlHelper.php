@@ -125,9 +125,9 @@ class MysqlHelper
         $sqlContent = preg_replace("/(\/\*.*?\*\/|--.*?$)/ms", '', $sqlContent);
         // 分割SQL语句，这里假设每个语句以';'结尾
         $sqlContent = explode(";\r\n", $sqlContent);
-        // 过滤空数组
+         // 过滤空数组
         array_filter($sqlContent, function ($value) {
-            return $value !== '';
+            return empty($value);
         });
         // 执行每个SQL语句
         foreach ($sqlContent as $sql) {
@@ -135,6 +135,8 @@ class MysqlHelper
             if (!empty($prefix)) {
                 $sql = str_ireplace('__PREFIX__', $prefix, $sql);
             }
+            // 忽略重复数据表结构
+            $sql = str_ireplace('CREATE TABLE', 'CREATE TABLE IF NOT EXISTS', $sql);
 
             // 忽略插入重复数据
             $sql = str_ireplace('INSERT INTO', 'INSERT IGNORE INTO', $sql);
@@ -142,7 +144,9 @@ class MysqlHelper
             $result = $conn->query($sql);
             if (!$result) {
                 throw new \mysqli_sql_exception("导入失败: " . $conn->error);
-            }
+            }else{
+				return($result);
+			}
         }
 
         // 关闭连接
