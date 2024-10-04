@@ -101,11 +101,16 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 ## 📃更新日志
 
+> v1.0.7 2024年10月4日
+> * 增加导入的稳定性:过滤空行
+
 > v1.0.6 2024年8月27日
 > * 导入时增加了判断是否存在同名表的逻辑
 
 > v1.0.5 2024年6月14日
 > * 增加了在导出时可以设置禁用外键检查的参数
+
+<details><summary>点击查看更多</summary>
 
 > v1.0.4 2024年4月19日
 > * 优化了.sql文件中注释的过滤规则
@@ -122,6 +127,12 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 > v1.0.0 2023年9月2日
 > * 首次发布
+</details>
+
+## 😎开发者们
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
 
 ## 🐧QQ频道
 <a href="https://pd.qq.com/s/7h2hvcuxs">
