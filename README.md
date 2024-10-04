@@ -132,6 +132,26 @@ $mysql->importSqlFile('test.sql', 'wp_');
 ## 😎开发者们
 
 <!-- readme: contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/zjkal">
+                    <img src="https://avatars.githubusercontent.com/u/15082976?v=4" width="100;" alt="zjkal"/>
+                    <br />
+                    <sub><b>zjkal</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/fedsin">
+                    <img src="https://avatars.githubusercontent.com/u/179591768?v=4" width="100;" alt="fedsin"/>
+                    <br />
+                    <sub><b>fedsin</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
 <!-- readme: contributors -end -->
 
 ## 🐧QQ频道
