@@ -30,7 +30,7 @@ class MysqlHelperTest extends TestCase
         try {
             $mysql = new MysqlHelper();
             $mysql->setConfig($this->config);
-            $mysql->exportSqlFile('export.sql');
+            $mysql->exportSqlFile('export.sql', true, [], true);
             print '导出成功';
         } catch (\Exception $e) {
             $this->fail('导出失败:' . $e->getMessage());

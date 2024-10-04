@@ -123,12 +123,14 @@ class MysqlHelper
         // 读取.sql文件内容并过滤注释
         $sqlContent = file_get_contents($sqlFilePath);
         $sqlContent = preg_replace("/(\/\*.*?\*\/|--.*?$)/ms", '', $sqlContent);
-        // 分割SQL语句，这里假设每个语句以';'结尾
-        $sqlContent = explode(";\r\n", $sqlContent);
+        // 分割SQL语句
+        $sqlContent = explode(";", $sqlContent);
+        //去掉每条sql语句两边的空格和换行
+        $sqlContent = array_map(function ($value) {
+            return trim($value);
+        }, $sqlContent);
         // 过滤空数组
-        array_filter($sqlContent, function ($value) {
-            return $value !== '';
-        });
+        $sqlContent = array_filter($sqlContent);
         // 执行每个SQL语句
         foreach ($sqlContent as $sql) {
             // 替换表前缀
