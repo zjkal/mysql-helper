@@ -99,11 +99,16 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 ## 📃Changelog
 
+> v1.0.7 Oct 4, 2024
+> * Improved the stability of imports: filter blank rows
+
 > v1.0.6 Aug 27, 2024
 > * Added logic to determine whether a table with the same name exists
 
 > v1.0.5 June 14, 2024
 > * Added the ability to set a parameter to disable foreign key checking during export
+
+<details><summary>点击查看更多</summary>
 
 > v1.0.4 Apr 19, 2024
 > * Optimized the filtering rules for comments in .sql files
@@ -120,6 +125,32 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 > v1.0.0 Sep 2, 2023
 > * Initial Release
+</details>
+
+## 😎Contributors
+
+<!-- readme: contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/zjkal">
+                    <img src="https://avatars.githubusercontent.com/u/15082976?v=4" width="100;" alt="zjkal"/>
+                    <br />
+                    <sub><b>zjkal</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/fedsin">
+                    <img src="https://avatars.githubusercontent.com/u/179591768?v=4" width="100;" alt="fedsin"/>
+                    <br />
+                    <sub><b>fedsin</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
+<!-- readme: contributors -end -->
 
 ## 📖License
 
