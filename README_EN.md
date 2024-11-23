@@ -99,6 +99,9 @@ $mysql->importSqlFile('test.sql', 'wp_');
 
 ## 📃Changelog
 
+> v1.0.8 November 23, 2024
+> * Fixed the bug that the ignore statement was repeatedly replaced when importing a table
+
 > v1.0.7 Oct 4, 2024
 > * Improved the stability of imports: filter blank rows
 
