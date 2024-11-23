@@ -131,17 +131,23 @@ class MysqlHelper
         }, $sqlContent);
         // 过滤空数组
         $sqlContent = array_filter($sqlContent);
+
         // 执行每个SQL语句
         foreach ($sqlContent as $sql) {
             // 替换表前缀
             if (!empty($prefix)) {
                 $sql = str_ireplace('__PREFIX__', $prefix, $sql);
             }
+
             // 忽略重复数据表结构
-            $sql = str_ireplace('CREATE TABLE', 'CREATE TABLE IF NOT EXISTS', $sql);
+            if (stripos($sql, 'CREATE TABLE IF NOT EXISTS') === false) {
+                $sql = str_ireplace('CREATE TABLE', 'CREATE TABLE IF NOT EXISTS', $sql);
+            }
 
             // 忽略插入重复数据
-            $sql = str_ireplace('INSERT INTO', 'INSERT IGNORE INTO', $sql);
+            if (stripos($sql, 'INSERT IGNORE INTO') === false) {
+                $sql = str_ireplace('INSERT INTO', 'INSERT IGNORE INTO', $sql);
+            }
 
             $result = $conn->query($sql);
             if (!$result) {

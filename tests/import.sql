@@ -1,5 +1,5 @@
 -- 表结构：shop
-CREATE TABLE `__PREFIX__shop` (
+CREATE TABLE IF NOT EXISTS `__PREFIX__shop` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `name` varchar(255) DEFAULT NULL COMMENT '商品名称',
   `price` decimal(10,2) DEFAULT NULL COMMENT '价格',
@@ -9,7 +9,7 @@ CREATE TABLE `__PREFIX__shop` (
 INSERT INTO `__PREFIX__shop` VALUES ('1','可口可乐','2.99');
 INSERT INTO `__PREFIX__shop` VALUES ('2','溜溜梅','5.99');
 -- 表结构：user
-CREATE TABLE `__PREFIX__user` (
+CREATE TABLE IF NOT EXISTS `__PREFIX__user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `username` varchar(255) DEFAULT NULL COMMENT '用户名',
   `password` varchar(255) DEFAULT NULL COMMENT '密码',
