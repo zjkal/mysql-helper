@@ -16,7 +16,7 @@ class MysqlHelperTest extends TestCase
         try {
             $mysql = new MysqlHelper();
             $mysql->setConfig($this->config);
-            $mysql->importSqlFile('import.sql', 'test_');
+            $mysql->importSqlFile('import.sql', 'test_', true);
             print '导入成功';
         } catch (\Exception $e) {
             $this->fail('导入失败:' . $e->getMessage());

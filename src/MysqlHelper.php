@@ -96,11 +96,12 @@ class MysqlHelper
 
     /**
      * 将.sql文件导入到mysql数据库
-     * @param string $sqlFilePath .sql文件路径
-     * @param string $prefix      表前缀(优先级高于构造函数中的表前缀,默认为空)
+     * @param string $sqlFilePath       .sql文件路径
+     * @param string $prefix            表前缀(优先级高于构造函数中的表前缀,默认为空)
+     * @param bool   $dropTableIfExists 如果表已存在，是否先删除(默认为false)
      * @return void
      */
-    public function importSqlFile(string $sqlFilePath, string $prefix = '')
+    public function importSqlFile(string $sqlFilePath, string $prefix = '', bool $dropTableIfExists = false)
     {
 
         if (!file_exists($sqlFilePath)) {
@@ -139,9 +140,21 @@ class MysqlHelper
                 $sql = str_ireplace('__PREFIX__', $prefix, $sql);
             }
 
-            // 忽略重复数据表结构
-            if (stripos($sql, 'CREATE TABLE IF NOT EXISTS') === false) {
-                $sql = str_ireplace('CREATE TABLE', 'CREATE TABLE IF NOT EXISTS', $sql);
+            //判断如果是创建表的SQL语句
+            if (stripos($sql, 'CREATE TABLE') !== false) {
+                //判断如果表已经存在是否先删除
+                if ($dropTableIfExists) {
+                    //提取出表的名称
+                    preg_match('/CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?`?(\w+)`?/i', $sql, $matches);
+                    $tableName = $matches[1];
+                    //删除表
+                    $conn->query("DROP TABLE IF EXISTS `$tableName`");
+                } else {
+                    // 忽略已经存在的表结构
+                    if (stripos($sql, 'CREATE TABLE IF NOT EXISTS') === false) {
+                        $sql = str_ireplace('CREATE TABLE', 'CREATE TABLE IF NOT EXISTS', $sql);
+                    }
+                }
             }
 
             // 忽略插入重复数据
