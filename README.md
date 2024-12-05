@@ -99,8 +99,10 @@ $mysql->importSqlFile('test.sql');
 //导入数据库,并自动替换表前缀
 $mysql->importSqlFile('test.sql', 'wp_');
 
-//输入数据库,如果表已经存在,则先删除
-$mysql->importSqlFile('test.sql', 'wp_', true);
+//导入数据库,不替换前缀, 并且如果表已经存在,则先删除
+$mysql->importSqlFile('test.sql', '', true);
+//php8以上可以更简洁的写法:
+$mysql->importSqlFile('test.sql', dropTableIfExists: true);
 ```
 
 ## 📃更新日志

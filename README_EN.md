@@ -96,8 +96,10 @@ $mysql->importSqlFile('test.sql');
 //Import the database and automatically replace the table prefix
 $mysql->importSqlFile('test.sql', 'wp_');
 
-//Enter the database, and if the table already exists, delete it first
-$mysql->importSqlFile('test.sql', 'wp_', true);
+//Import the database, do not replace the prefix, and delete the table first if it already exists
+$mysql->importSqlFile('test.sql', '', true);
+//PHP8 or above can be written more concisely:
+$mysql->importSqlFile('test.sql', dropTableIfExists: true);
 ```
 
 ## 📃Changelog
