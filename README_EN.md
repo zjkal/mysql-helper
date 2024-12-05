@@ -95,9 +95,15 @@ $mysql->importSqlFile('test.sql');
 
 //Import the database and automatically replace the table prefix
 $mysql->importSqlFile('test.sql', 'wp_');
+
+//Enter the database, and if the table already exists, delete it first
+$mysql->importSqlFile('test.sql', 'wp_', true);
 ```
 
 ## 📃Changelog
+
+> v1.0.9 December 5, 2024
+> * Added parameters for data import to set whether to delete existing tables
 
 > v1.0.8 November 23, 2024
 > * Fixed the bug that the ignore statement was repeatedly replaced when importing a table
