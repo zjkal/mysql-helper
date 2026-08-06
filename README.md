@@ -107,6 +107,9 @@ $mysql->importSqlFile('test.sql', dropTableIfExists: true);
 
 ## 📃更新日志
 
+> v1.0.10 2026年8月6日
+> * 导出的sql新增 DROP TABLE IF EXISTS 选型
+
 > v1.0.9 2024年12月5日
 > * 增加了数据导入时的参数, 用于设置是否删除已存在的表
 

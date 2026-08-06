@@ -104,6 +104,9 @@ $mysql->importSqlFile('test.sql', dropTableIfExists: true);
 
 ## 📃Changelog
 
+> v1.0.10 August 6, 2026
+> * Exported SQL added DROP TABLE IF EXISTS option
+
 > v1.0.9 December 5, 2024
 > * Added parameters for data import to set whether to delete existing tables
 
