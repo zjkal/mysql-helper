@@ -178,9 +178,10 @@ class MysqlHelper
      * @param bool   $withData                是否导出表数据(默认为true)
      * @param array  $tables                  要导出的表名数组(默认为空，即导出所有表)
      * @Param bool   $disableForeignKeyChecks 禁用外键检查（默认为false）
+     * @Param bool   $dropTableIfExists       表已存在时是否先删除(默认为false)
      * @return void
      */
-    public function exportSqlFile(string $sqlFilePath, bool $withData = true, array $tables = [], bool $disableForeignKeyChecks = false)
+    public function exportSqlFile(string $sqlFilePath, bool $withData = true, array $tables = [], bool $disableForeignKeyChecks = false, bool $dropTableIfExists = false)
     {
         // 创建MySQL连接
         $conn = new mysqli($this->host, $this->username, $this->password, $this->database, $this->port);
@@ -221,6 +222,9 @@ class MysqlHelper
 
             // 导出表结构
             fwrite($outputFile, "-- 表结构：$table\n");
+            if ($dropTableIfExists) {
+                fwrite($outputFile, "DROP TABLE IF EXISTS `$table`;\n");
+            }
             $createTableSQL = $conn->query("SHOW CREATE TABLE $table");
             $createTableRow = $createTableSQL->fetch_row();
             fwrite($outputFile, $createTableRow[1] . ";\n");
